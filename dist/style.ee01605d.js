@@ -254,31 +254,13 @@ parcelRequire = (function (modules, cache, entry, globalName) {
           .setTween(timeline)
           .setPin("section")
           .addTo(controller);
-        const tl = gsap.timeline({
-          defaults: {
-            ease: "power1.out",
-          },
-        });
+        /* Loader */
+        setTimeout(function () {
+          //deferred onload
 
-        tl.fromTo(
-          "#intro",
-          {
-            y: 0,
-          },
-          {
-            y: -1000,
-            duration: 1.3,
-          },
-          "3"
-        ).to(
-          "#spinner",
-          1,
-          {
-            opacity: "0",
-          },
-          "-=1.7"
-        );
-        /*  */
+          $("#intro").fadeOut("slow");
+          $("html").css("overflow", "scroll");
+        }, 2000);
       },
       {},
     ],
